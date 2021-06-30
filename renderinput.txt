@@ -1,0 +1,26 @@
+<template #renderInput>
+        <input type="text" width="10px" class="someclass" style="font-size:20px;background-color:red" />
+      </template>
+
+
+
+cloneAttributes(target, source) {
+      for (var key in source[0].data.attrs){
+          target.setAttribute(key, source[0].data.attrs[key]);
+      }
+      var allStyles='';
+       for (var style in source[0].data.staticStyle){
+          allStyles+=style+':'+source[0].data.staticStyle[style]+';';
+      }
+      target.style.cssText=allStyles;
+      var autosearchClass=source[0].data.staticClass;
+      target.classList.add(autosearchClass);
+    },
+
+
+
+
+ if(this.hasRenderInputSlot){
+      var input= document.getElementById("autosearch");
+      this.cloneAttributes(input,this.$slots.renderInput);
+    }
