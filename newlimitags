@@ -1,0 +1,63 @@
+[7/2 11:07 PM] Mohammed, AkbaruddinX
+    
+
+ clickOutsideListener(event) {​​​​​​​​
+this.elementVisible = true;
+
+
+this.$emit("onHighlightChange");
+if (this.debug === true) {​​​​​​​​
+if (this.display == "" || this.display == undefined) {​​​​​​​​
+if (this.$el && !this.$el.contains(event.target)) {​​​​​​​​
+this.close();
+this.icon = false;
+this.focusinputbox = false;
+          }​​​​​​​​
+        }​​​​​​​​
+      }​​​​​​​​ else {​​​​​​​​
+if (this.$el && !this.$el.contains(event.target)) {​​​​​​​​
+this.close();
+this.icon = false;
+this.focusinputbox = false;
+        }​​​​​​​​
+      }​​​​​​​​
+if (this.$el && this.$el.contains(event.target)) {​​​​​​​​
+this.focusinputbox = true;
+       }​​​​​​​​
+    }​​​​​​​​,
+
+
+
+
+
+
+
+
+
+[7/2 11:07 PM] Mohammed, AkbaruddinX
+    
+
+/**
+     * Add event listener for clicks outside the results
+     */
+    setEventListener() {​​​​​​​​
+if (this.eventListener) {​​​​​​​​
+returnfalse;
+      }​​​​​​​​
+this.eventListener = true;
+this.focusinputbox = true;
+      document.addEventListener("click", this.clickOutsideListener, true);
+returntrue;
+    }​​​​​​​​,
+
+
+    
+
+limitSelectedItems(){​​​​​​​​
+if(!isNaN(this.limitTags) && this.limitTags != 0){​​​​​​​​
+returnthis.selectedItems.filter((item,index)=> index < this.limitTags);
+      }​​​​​​​​else{​​​​​​​​
+returnthis.selectedItems 
+      }​​​​​​​​
+    }​​​​​​​​,
+
