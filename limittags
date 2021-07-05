@@ -1,0 +1,12 @@
+<template v-if="focusinputbox">
+        <li class="MuiAutocomplete-tagSizeSmall" v-for="(item, index) in selectedItems" :key="item.id">
+          {{ item["name"] }}
+          <span class="removeitem" @click="itemRemoved(index)"></span>
+        </li>
+        </template>
+         <template v-if="!focusinputbox">
+        <li class="MuiAutocomplete-tagSizeSmall" v-for="(item, index) in limitSelectedItems" :key="item.id">
+          {{ item["name"] }}
+          <span class="removeitem" @click="itemRemoved(index)"></span>
+        </li>
+         </template>
