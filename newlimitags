@@ -61,3 +61,13 @@ returnthis.selectedItems
       }​​​​​​​​
     }​​​​​​​​,
 
+<span v-if="clearButtonIcon" :class="{clearButtonIcon,clearIndicatorDirty:isInputDirty}"></span>
+
+
+In computed methods, add this
+isInputDirty(){
+      var alphabetpattern = /^[a-zA-Z ]*$/;
+      if(alphabetpattern.test(this.display)){
+        return false;
+      }else {return true;}
+    }
